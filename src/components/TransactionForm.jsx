@@ -2,7 +2,7 @@ import React from "react";
 
 function TransactionForm() {
   return (
-    <form className="w-72 bg-white p-4 rounded-lg shadow-lg">
+    <form className="w-80 bg-white p-4 rounded-lg shadow-lg m-5">
       <h2 className="font-bold text-2xl text-gray-800 mb-4">
         Add new transaction
       </h2>

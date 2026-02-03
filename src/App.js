@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import SummaryCards from "./components/SummaryCards";
 import TransactionForm from "./components/TransactionForm";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="bg-gray-800 h-screen">
       <Header />
       <TransactionForm />
+      <SummaryCards />
     </div>
   );
 }
