@@ -15,7 +15,7 @@ function SummaryCards() {
 
       <section className="bg-white p-4 rounded-lg shadow-lg w-80">
         <p>Balance</p>
-        <p className="font-bold text-2xl text-blue-600">$33</p>
+        <p className="font-bold text-2xl text-violet-700">$33</p>
       </section>
     </div>
   );

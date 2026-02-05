@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import SummaryCards from "./components/SummaryCards";
 import TransactionForm from "./components/TransactionForm";
+import TransactionList from "./components/TransactionList";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <TransactionForm />
       <SummaryCards />
+      <TransactionList />
     </div>
   );
 }
