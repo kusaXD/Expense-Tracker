@@ -5,11 +5,17 @@ import TransactionList from "./components/TransactionList";
 
 function App() {
   return (
-    <div className="bg-gray-800 h-screen">
+    <div className="bg-gray-800 min-h-screen">
       <Header />
-      <TransactionForm />
-      <SummaryCards />
-      <TransactionList />
+      <div className="grid grid-cols-1 lg:grid-cols-[550px_1fr] gap-6 p-6 max-w-7xl mx-auto">
+        <div className="space-y-6">
+          <TransactionForm />
+          <SummaryCards />
+        </div>
+        <div>
+          <TransactionList />
+        </div>
+      </div>
     </div>
   );
 }
