@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { useTransactions } from "../context/TransactionContext";
 
 function TransactionForm() {
+  const [value, setValue] = useState("");
+  const { transactions, setTransactions } = useTransactions();
+
+  function addTransaction(e) {
+    e.preventDefault();
+
+    const newTransaction = {
+      transaction: value,
+    };
+
+    setTransactions([...transactions, newTransaction]);
+  }
+
   return (
     <form className="w-80 bg-white p-4 rounded-lg shadow-lg m-5">
       <h2 className="font-bold text-2xl text-gray-800 mb-4">
@@ -12,6 +26,8 @@ function TransactionForm() {
         <input
           type="text"
           placeholder="Enter description"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
           className="w-full bg-gray-800 text-white text-lg p-2 rounded focus:outline-none focus:ring-2 focus:ring-violet-500"
         />
       </section>
@@ -66,7 +82,7 @@ function TransactionForm() {
       </section>
 
       <button
-        type="submit"
+        onClick={addTransaction}
         className="w-full text-white bg-violet-700 hover:bg-violet-800 py-2 rounded-lg text-lg font-semibold transition-colors"
       >
         Add transaction
