@@ -33,12 +33,22 @@ export const TransactionsProvider = ({ children }) => {
     });
   };
 
+  const removeTransaction = (id) => {
+    setState((prev) => {
+      return {
+        transactions: prev.transactions.filter((item) => item.id !== id),
+        totals: prev.totals,
+      };
+    });
+  };
+
   return (
     <TransactionsContext.Provider
       value={{
         transactions: state.transactions,
         totals: state.totals,
         addTransaction,
+        removeTransaction,
       }}
     >
       {children}

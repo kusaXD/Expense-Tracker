@@ -1,6 +1,13 @@
 import React from "react";
+import { useTransactions } from "../context/TransactionContext";
 
 function TransactionItem({ transaction }) {
+  const { removeTransaction } = useTransactions();
+
+  const handleRemove = () => {
+    removeTransaction(transaction.id);
+  };
+
   return (
     <div className="m-3 bg-white rounded-lg border border-gray-200 p-4 flex items-center justify-between shadow-sm">
       <section className="flex-1">
@@ -27,7 +34,10 @@ function TransactionItem({ transaction }) {
         </p>
       </section>
 
-      <button className="ml-2 text-gray-400 hover:text-red-500 transition-colors">
+      <button
+        onClick={handleRemove}
+        className="ml-2 text-gray-400 hover:text-red-500 transition-colors"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
