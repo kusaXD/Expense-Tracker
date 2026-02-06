@@ -20,9 +20,9 @@ function TransactionForm() {
     e.preventDefault();
 
     const newTransaction = {
-      id: Date.now().toString(), // генерируем уникальный ID
+      id: Date.now().toString(),
       description: formData.description,
-      amount: parseFloat(formData.amount), // ← ПРЕОБРАЗУЕМ В ЧИСЛО!
+      amount: parseFloat(formData.amount),
       type: formData.type,
       category: formData.category,
       date: formData.date,

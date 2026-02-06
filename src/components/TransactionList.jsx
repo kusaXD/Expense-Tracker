@@ -8,10 +8,10 @@ function TransactionList() {
   return (
     <div className="bg-white text-black rounded-lg shadow-lg w-[900px] p-7 m-5">
       <p className="text-3xl font-bold">Recent Transactions</p>
-      {transactions.length > 1 ? (
+      {transactions.length > 0 ? (
         <div>
-          {transactions.slice(1).map((transaction, index) => (
-            <TransactionItem key={index + 1} transaction={transaction} />
+          {transactions.map((transaction, index) => (
+            <TransactionItem key={transaction.id} transaction={transaction} />
           ))}
         </div>
       ) : (

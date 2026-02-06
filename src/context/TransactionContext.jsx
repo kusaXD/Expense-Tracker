@@ -6,15 +6,40 @@ const TransactionsContext = createContext();
 export const useTransactions = () => useContext(TransactionsContext);
 
 export const TransactionsProvider = ({ children }) => {
-  const [transactions, setTransactions] = useState([]);
+  const [state, setState] = useState({
+    transactions: [],
+    totals: {
+      expense: 0,
+      income: 0,
+    },
+  });
 
   const addTransaction = (transaction) => {
-    setTransactions((prev) => [...prev, transaction]);
+    setState((prev) => {
+      const amount = parseFloat(transaction.amount);
+
+      const newTotals = { ...prev.totals };
+
+      if (transaction.type === "expense") {
+        newTotals.expense += amount;
+      } else {
+        newTotals.income += amount;
+      }
+
+      return {
+        transactions: [...prev.transactions, transaction],
+        totals: newTotals,
+      };
+    });
   };
 
   return (
     <TransactionsContext.Provider
-      value={{ transactions, setTransactions, addTransaction }}
+      value={{
+        transactions: state.transactions,
+        totals: state.totals,
+        addTransaction,
+      }}
     >
       {children}
     </TransactionsContext.Provider>
