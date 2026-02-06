@@ -10,8 +10,8 @@ function TransactionList() {
       <p className="text-3xl font-bold">Recent Transactions</p>
       {transactions.length > 1 ? (
         <div>
-          {transactions.slice(1).map((transaction) => (
-            <TransactionItem transaction={transaction} />
+          {transactions.slice(1).map((transaction, index) => (
+            <TransactionItem key={index + 1} transaction={transaction} />
           ))}
         </div>
       ) : (
