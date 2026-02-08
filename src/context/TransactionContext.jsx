@@ -11,6 +11,7 @@ export const TransactionsProvider = ({ children }) => {
     totals: {
       expense: 0,
       income: 0,
+      balance: 0,
     },
   });
 
@@ -22,8 +23,10 @@ export const TransactionsProvider = ({ children }) => {
 
       if (transaction.type === "expense") {
         newTotals.expense += amount;
+        newTotals.balance -= amount;
       } else {
         newTotals.income += amount;
+        newTotals.balance += amount;
       }
 
       return {
@@ -35,9 +38,28 @@ export const TransactionsProvider = ({ children }) => {
 
   const removeTransaction = (id) => {
     setState((prev) => {
+      const transactionToRemove = prev.transactions.find(
+        (item) => item.id === id,
+      );
+
+      if (!transactionToRemove) {
+        return prev;
+      }
+
+      const amount = parseFloat(transactionToRemove.amount);
+      const newTotals = { ...prev.totals };
+
+      if (transactionToRemove.type === "expense") {
+        newTotals.expense -= amount;
+        newTotals.balance += amount;
+      } else {
+        newTotals.income -= amount;
+        newTotals.balance -= amount;
+      }
+
       return {
         transactions: prev.transactions.filter((item) => item.id !== id),
-        totals: prev.totals,
+        totals: newTotals,
       };
     });
   };
