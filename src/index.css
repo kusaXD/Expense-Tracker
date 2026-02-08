@@ -1,3 +1,17 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@layer components {
+  .card {
+    background-color: white;
+    color: black;
+    border-radius: 0.5rem;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    width: 900px;
+    padding: 1.75rem;
+    margin: 1.25rem;
+  }
+}
