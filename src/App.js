@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import SummaryCards from "./components/SummaryCards";
+import TransactionFilter from "./components/TransactionFilter";
 import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
 
@@ -13,6 +14,7 @@ function App() {
           <SummaryCards />
         </div>
         <div>
+          <TransactionFilter />
           <TransactionList />
         </div>
       </div>

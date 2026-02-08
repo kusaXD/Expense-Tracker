@@ -3,14 +3,14 @@ import { useTransactions } from "../context/TransactionContext";
 import TransactionItem from "./TransactionItem";
 
 function TransactionList() {
-  const { transactions } = useTransactions();
+  const { filteredTransactions } = useTransactions();
 
   return (
-    <div className="bg-white text-black rounded-lg shadow-lg w-[900px] p-7 m-5">
+    <div className="card">
       <p className="text-3xl font-bold">Recent Transactions</p>
-      {transactions.length > 0 ? (
+      {filteredTransactions.length > 0 ? (
         <div>
-          {transactions.map((transaction, index) => (
+          {filteredTransactions.map((transaction) => (
             <TransactionItem key={transaction.id} transaction={transaction} />
           ))}
         </div>

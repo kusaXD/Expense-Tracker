@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useMemo } from "react";
 import { createContext } from "react";
 
 const TransactionsContext = createContext();
@@ -14,6 +14,16 @@ export const TransactionsProvider = ({ children }) => {
       balance: 0,
     },
   });
+  const [filter, setFilter] = useState("");
+
+  const filteredTransactions = useMemo(() => {
+    if (!filter || filter === "") {
+      return state.transactions;
+    }
+    return state.transactions.filter(
+      (transaction) => transaction.category === filter,
+    );
+  }, [state.transactions, filter]);
 
   const addTransaction = (transaction) => {
     setState((prev) => {
@@ -69,6 +79,9 @@ export const TransactionsProvider = ({ children }) => {
       value={{
         transactions: state.transactions,
         totals: state.totals,
+        filter,
+        filteredTransactions,
+        setFilter,
         addTransaction,
         removeTransaction,
       }}

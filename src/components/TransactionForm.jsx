@@ -40,10 +40,7 @@ function TransactionForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-[500px] bg-white p-4 rounded-lg shadow-lg m-5"
-    >
+    <form onSubmit={handleSubmit} class="card w-[500px]">
       <h2 className="font-bold text-2xl text-gray-800 mb-4">
         Add new transaction
       </h2>
