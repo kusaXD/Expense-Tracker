@@ -1,3 +1,4 @@
+import Chart from "./components/Chart";
 import Header from "./components/Header";
 import SummaryCards from "./components/SummaryCards";
 import TransactionFilter from "./components/TransactionFilter";
@@ -15,6 +16,7 @@ function App() {
         </div>
         <div>
           <TransactionFilter />
+          <Chart />
           <TransactionList />
         </div>
       </div>
