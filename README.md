@@ -10,15 +10,18 @@ A modern personal finance application built with React for tracking income and e
 ## ✨ Features
 
 📊 Comprehensive Tracking
+
 Add income and expense transactions
 Categorize transactions (food, transport, entertainment, etc.)
 
 💰 Real-time Statistics
+
 Automatic calculation of totals (income, expenses, balance)
 Instant updates when adding/deleting transactions
 Visual summary of financial health
 
 🔍 Smart Filtering
+
 Filter transactions by category
 
 ---
@@ -42,6 +45,7 @@ Filter transactions by category
 
 ### Clone the repository
 https://github.com/kusaXD/Expense-Tracker.git
+
 
 
 
